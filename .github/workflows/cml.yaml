@@ -21,17 +21,15 @@ jobs:
 
       - name: cml
         env:
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          repo_token: ${{ secrets.REPO_SECRET }}
         run: |
           pip install -r requirements.txt
 
           # Pull dataset with DVC
-          dvc pull data
+          #dvc pull data
 
           # Reproduce pipeline if any changes detected in dependencies
-          dvc repro
+          #dvc repro
 
           # Use DVC metrics diff to compare metrics to master
           git fetch --prune --unshallow
